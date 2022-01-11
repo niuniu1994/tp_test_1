@@ -1,15 +1,19 @@
 package com.gildedrose;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GildedRoseTest {
+
 
     @Test
     public void simpleItem() {
@@ -65,6 +69,66 @@ class GildedRoseTest {
         }
         assertEquals(expectedLog, actualLog);
     }
+
+
+
+
+    @Test
+    public void testBackStagePassQuantityUpdatePolicy() throws Exception {
+
+    }
+
+
+    @Test
+    public void testUpdateSellIn() throws Exception {
+
+    }
+
+
+    @Test
+    public void testWhenSellInNegativeQuantityUpdatePolic() throws Exception {
+
+    }
+
+
+    @Test
+    public void testDecreaseItemQuantity() throws Exception {
+        GildedRose gildedRose = new GildedRose(new Item[]{});
+        Item item =  new Item("+5 Dexterity Vest", 10, 20);
+        gildedRose.decreaseItemQuantity(item,1);
+        assertEquals(19,item.quality);
+    }
+
+    @Test
+    public void testIncreaseItemQuantity() throws Exception {
+        GildedRose gildedRose = new GildedRose(new Item[]{});
+        Item item =  new Item("+5 Dexterity Vest", 10, 20);
+        gildedRose.increaseItemQuantity(item,1);
+        assertEquals(21,item.quality);
+    }
+
+    @Test
+    public void testDecreaseSellIn() throws Exception {
+        GildedRose gildedRose = new GildedRose(new Item[]{});
+        Item item =  new Item("+5 Dexterity Vest", 10, 20);
+        gildedRose.decreaseSellIn(item,1);
+        assertEquals(9,item.sellIn);
+    }
+
+
+    @Test
+    public void testIncreaseSellIn() throws Exception {
+      GildedRose gildedRose = new GildedRose(new Item[]{});
+      Item item =  new Item("+5 Dexterity Vest", 10, 20);
+      gildedRose.increaseSellIn(item,1);
+      assertEquals(11,item.sellIn);
+    }
+
+
+    @Test
+    public void testIsSpecialItem() throws Exception {
+
+ }
 
 
 }
